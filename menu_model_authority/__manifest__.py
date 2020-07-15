@@ -1,5 +1,5 @@
 {
-    "name": "einfo 菜单模型屏蔽",
+    "name": "hsp 菜单模型屏蔽",
     "summary": "菜单模型屏蔽",
     "version": "12.0.2.0.0",
     "category": "",
