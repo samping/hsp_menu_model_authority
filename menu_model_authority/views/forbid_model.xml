@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<odoo>
+	<record id="view_ir_model" model="ir.ui.view">
+			<field name="name">view_ir_model</field>
+			<field name="model">ir.model</field>
+			<field name="inherit_id" ref="base.view_model_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='access_ids']" position="after">
+                    <h1>组屏蔽</h1>
+					<field name="forbid_ids">
+                        <tree string="组屏蔽" editable="top" decoration-warning="not group_id and (perm_read or perm_write or perm_create or perm_unlink)">
+                            <field name="name"  string="名称"/>
+                            <field name="group_id"  string="组"/>
+                            <field name="perm_read" string="读禁止"/>
+                            <field name="perm_write" string="写禁止"/>
+                            <field name="perm_create" string="创建禁止"/>
+                            <field name="perm_unlink" string="删除禁止"/>
+                        </tree>
+                    </field>
+				</xpath>
+			</field>
+		</record>
+</odoo>

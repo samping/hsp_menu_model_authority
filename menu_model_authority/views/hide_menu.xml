@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<odoo>
+
+	<record id="view_res_user_rescrict" model="ir.ui.view">
+			<field name="name">view_restrict_user_menu</field>
+			<field name="model">res.users</field>
+			<field name="inherit_id" ref="base.view_users_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//notebook" position="inside">
+					<page string = "屏蔽菜单">
+						<field name ="menu_ids"/>
+					</page>
+				</xpath>
+			</field>
+		</record>
+	<record id="view_manu_group" model="ir.ui.view">
+			<field name="name">view_manu_ir_menu</field>
+			<field name="model">ir.ui.menu</field>
+			<field name="inherit_id" ref="base.edit_menu_access"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='action']" position='after'>
+					<field name="action_type" invisible="1" />
+					<field name="model_id" attrs="{'invisible': [('action_type','!=','ir.actions.act_window')]}"/>
+				</xpath>
+				<xpath expr="//field[@name='groups_id']" position="after">
+                    <h1>组屏蔽</h1>
+					<field name ="hide_group_ids"/>
+					<h1>用户屏蔽</h1>
+					<field name ="hide_for_user"/>
+				</xpath>
+			</field>
+		</record>
+</odoo>
